@@ -1,0 +1,109 @@
+
+    body {
+        text-align: center;
+        line-height: 1;
+       
+     /* Different borders for each side */
+        position: center;
+        padding: 20px;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        
+        
+       
+       
+        text-align: center;
+        background-color:yellow;
+        background-size: 275%;
+        background-repeat: no-repeat;
+}
+header {
+    background-image: url('autistic-puzzle.jpg'); 
+   
+    
+    padding: 20px;
+    text-align: center;
+}
+header h1 {
+ 
+    margin: 0;
+    color: lightblue;
+    text-shadow: 
+    -1px -1px 0 rgb(238, 84, 166),  
+    1px -1px 0 rgb(221, 29, 208),
+   -1px  1px 0 rgb(255, 255, 255),
+    1px  1px 0 rgb(125, 12, 85);
+    
+}
+
+
+footer {
+    margin-top: 400px;
+    margin-bottom: 250px;
+    background-image: url('autistic-puzzle.jpg'); 
+    padding: 10px;
+    text-align: center;
+    color:lightblue;
+    text-shadow: 
+    -1px -1px 0 rgb(238, 84, 166),  
+    1px -1px 0 rgb(221, 29, 208),
+   -1px  1px 0 rgb(255, 255, 255),
+    1px  1px 0 rgb(125, 12, 85);
+}
+
+\.start-button:hover {
+    background-color: #e6ac00;
+}
+.start-button {
+    margin-top: 250px;
+    display: inline-block;
+    padding: 30px 60px;
+    background-color:blue;
+    color:lightblue
+    hidden;
+    text-shadow: 
+    -1px -1px 0 rgba(4, 0, 2, 0.01),  
+    1px -1px 0 rgb(13, 12, 13),
+   -1px  1px 0 rgb(4, 1, 1),
+    1px  1px 0 rgb(29, 18, 25);
+    border-radius: 45px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button {
+    background-color:blue;
+    border-radius: 45px;
+    color: lightblue;
+    text-shadow: 
+    -1px -1px 0 rgb(238, 84, 166),  
+    1px -1px 0 rgb(221, 29, 208),
+   -1px  1px 0 rgb(255, 255, 255),
+    1px  1px 0 rgb(125, 12, 85);
+
+    
+    
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #882183;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 30px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+.content {
+    padding: 20px;
+}
