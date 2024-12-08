@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search with Voice Command</title>
+    <link rel="stylesheet" href="image-search\search.css">
+</head>
+<h1>Image Search</h1>
+<body>
+    <style>
+        body{
+    font-family: Arial, sans-serif;
+    color:orangered;
+    background-color:yellow;
+    text-align: center;
+    padding: 20px;
+
+    
+}
+h1{
+    text-align: center;
+    color:blue;
+
+}
+
+#search-bar {
+    background-color: green;
+    color:#f0f0f0;
+    margin-top: 96px;
+    margin-bottom: 65px;
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    background-color: rgb(34, 0, 128);
+    color:orangered;
+    flex: 1;
+    padding: 10px;
+}
+
+#voice-search {
+    margin-top: 95px;
+    color:red;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#voice-search.active {
+    background-color: lightblue;
+}
+button{
+    background-color: green;
+    color:blue;
+
+}
+    </style>
+    <form id="search-form">
+        <input type="text" id="search-input" placeholder="Search for images...">
+        <button type="submit">Search</button>
+        <button type="button" id="voice-search">🎤</button>
+    </form>
+    <div id="search-results"></div>
+
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = document.getElementById('search-input').value;
+            searchImages(query);
+        });
+
+        function searchImages(query) {
+            const apiKey = 'DiECU8REHbJErdkroDDlrGJCWP6DlpH5Qscl5102M8DH2gXlsrBMcu1H';
+            const url = `https://api.pexels.com/v1/search?query=${query}&per_page=15`;
+
+            fetch(url, {
+                headers: {
+                    Authorization: apiKey
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const results = document.getElementById('search-results');
+                results.innerHTML = '';
+                data.photos.forEach(photo => {
+                    const img = document.createElement('img');
+                    img.src = photo.src.medium;
+                    results.appendChild(img);
+                });
+            })
+            .catch(error => console.error('Error fetching images:', error));
+        }
+
+        // Voice command functionality
+        const voiceSearchButton = document.getElementById('voice-search');
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'en-US';
+
+        voiceSearchButton.addEventListener('click', () => {
+            recognition.start();
+        });
+
+        recognition.onresult = (event) => {
+            const query = event.results[0][0].transcript;
+            document.getElementById('search-input').value = query;
+            searchImages(query);
+        };
+
+        recognition.onerror = (event) => {
+            console.error('Voice recognition error:', event.error);
+        };
+    </script>
+</body>
+</html>
