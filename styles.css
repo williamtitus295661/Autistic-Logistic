@@ -51,7 +51,7 @@ footer {
     1px  1px 0 rgb(125, 12, 85);
 }
 
-\.start-button:hover {
+.start-button:hover {
     background-color: #e6ac00;
 }
 .start-button {
